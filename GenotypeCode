@@ -1,0 +1,72 @@
+#include <iostream>
+#include <algorithm> // Include the algorithm header for the transform function
+#include <cctype>
+using namespace std;
+
+int main(){
+//    cout<<"This is a program to determine \n GENOTYPE COMPATTIBILITY"<<endl;
+//    cout<<"............................................."<<endl;
+//    cout<<"_____________________________________________"<<endl;
+//    class partnerX{
+//    public:
+//        string genotype[] = {"AA", ""};
+////        genotype "AA";
+////        string g = genotype;
+////        g = "AA",
+//    };
+//    class partnerY{};
+
+    string genotypeX;
+    cout<<"Enter the man's genotype: ";
+    cin>>genotypeX;
+    // Convert genotypeX to uppercase
+    transform(genotypeX.begin(), genotypeX.end(), genotypeX.begin(), ::toupper);
+    string genotypeY;
+    cout<<"Enter the woman's genotype: ";
+    cin>>genotypeY;
+    // Convert genotypeY to uppercase
+    transform(genotypeY.begin(), genotypeY.end(), genotypeY.begin(), ::toupper);
+
+    cout<<"_____________________________________________"<<endl;
+    cout<<"_____________________________________________"<<endl;
+    cout<<"\t GENOTYPE MATCHING RESULTS"<<endl;
+    cout<<"_____________________________________________"<<endl;
+    if (genotypeX == "AA" && genotypeY == "AA"){//first match..........1
+        cout<<"Possible combination: AA || ZAA || AA || AA"<<endl;
+        cout<<"\t Remark: CAN MARRY!";
+        cout<<"_____________________________________________"<<endl;
+    }else if (genotypeX == "AA" && genotypeY == "AS"){//second match..........2
+        cout<<"Possible combination: AA || AS || AA || AS"<<endl;
+        cout<<"\t Remark: CAN MARRY!"<<endl;
+        cout<<"_____________________________________________"<<endl;
+    }else if(genotypeX == "AS" && genotypeY == "AS"){//third match..........3
+        cout<<"Possible combination: AA || AS || AS || SS"<<endl;
+        cout<<"\t Remark: YOU CAN..NOT MARRY!"<<endl;
+        cout<<"_____________________________________________"<<endl;
+    }else if( genotypeX == "SS" && genotypeY == "AA"){//fourth match..........4
+        cout<<"Possible combination: AS || AS || AS || AS"<<endl;
+        cout<<"\t Remark: CAN MARRY SHA!"<<endl;
+        cout<<"_____________________________________________"<<endl;
+    }else if(genotypeX == "SS" && genotypeY == "SS"){//fifth match..........5
+        cout<<"Possible combination: SS || SS || SS || SS"<<endl;
+        cout<<"\t Remark: DON'T EVEN TRY IT!"<<endl<<"\t \tYOU CANNOT MARRY!"<<endl;
+        cout<<"_____________________________________________"<<endl;
+    }else if(genotypeX == "AS" && genotypeY == "SC"){//sixth match..........6
+        cout<<"Possible combination: SS || AS || AC || SC"<<endl;
+        cout<<"\t Remark: SORRY, CANNOT MARRY!";
+        cout<<"_____________________________________________"<<endl;
+    }else if(genotypeX == "AS" && genotypeY == "CC"){//seventh match..........7
+        cout<<"Possible combination: AC || AC || SC || SC"<<endl;
+        cout<<"\t Remark: CANNOT MARRY!"<<endl;
+        cout<<"_____________________________________________"<<endl;
+    }else if(genotypeX == "AA" && genotypeY == "SC"){//Eighth match..........8
+        cout<<"Possible combination: AS || AC || AS || AC"<<endl;
+        cout<<"\t Remark: NA GOD SAVE UNA! \n \t \tYou can MARRY!"<<endl;
+        cout<<"_____________________________________________"<<endl;
+    } else{//9th match..........1
+        cout<<"\t INCORRECT GENOTYPE INPUT"<<endl;
+        cout<<"\t PLEASE CHECK AND TRY AGAIN!"<<endl;
+
+    }
+    cout<<"_______________*END OF RESULT*_______________"<<endl;
+}
